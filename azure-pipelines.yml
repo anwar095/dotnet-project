@@ -21,6 +21,13 @@ variables:
     projectName: 'dotnet-project'
 
 steps:
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarqube-service-connection'
+    scannerMode: 'MSBuild'
+    projectKey: 'dotnet-project'
+    projectName: 'dotnet-project'
+    
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
