@@ -13,6 +13,12 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarqube-service-connection'
+    scannerMode: 'MSBuild'
+    projectKey: 'dotnet-project'
+    projectName: 'dotnet-project'
 
 steps:
 - task: NuGetToolInstaller@1
